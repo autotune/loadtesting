@@ -6,6 +6,7 @@ from locust import events
 import names 
 import random
 import requests
+import json
 import os
 
 default_headers = {'User-Agent': 'locust-test'} 
