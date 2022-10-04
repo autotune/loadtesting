@@ -58,13 +58,13 @@ class WebsiteUser(HttpUser):
         for key in showtimes.json():
            showtime_ids.append(key['ID'])
 
-       for key in movies.json():
-          movie_ids.append(key['ID'])
+        for key in movies.json():
+           movie_ids.append(key['ID'])
         
-       rand_user = user_ids[random.randint(0, len(user_ids)-1)]
-       rand_showtime = showtime_ids[random.randint(0, len(showtime_ids)-1)]
-       rand_movie = movie_ids[random.randint(0, len(movie_ids)-1)]
+        rand_user = user_ids[random.randint(0, len(user_ids)-1)]
+        rand_showtime = showtime_ids[random.randint(0, len(showtime_ids)-1)]
+        rand_movie = movie_ids[random.randint(0, len(movie_ids)-1)]
 
-       new_booking = {'UserID': rand_user, 'MovieID': rand_movie, 'ShowtimeID': rand_showtime}
+        new_booking = {'UserID': rand_user, 'MovieID': rand_movie, 'ShowtimeID': rand_showtime}
       
-       add_booking = self.client.post(url + 'api/bookings/', data=json.dumps(new_booking), headers=default_headers)
+        add_booking = self.client.post(url + 'api/bookings/', data=json.dumps(new_booking), headers=default_headers)
