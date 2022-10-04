@@ -100,7 +100,7 @@ worker:
   replicas: 1
   hpa:
     enabled: true
-    minReplicas: 1
+    minReplicas: 10
     maxReplicas: 50
     targetCPUUtilizationPercentage: 40
   # worker.resources -- resources for the locust worker
