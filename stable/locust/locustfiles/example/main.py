@@ -56,6 +56,7 @@ class WebsiteUser(HttpUser):
         showtime_ids = []
         movie_ids = []
       
+        print(users.json())
         for key in users.json():
           user_ids.append(key['ID'])
 
