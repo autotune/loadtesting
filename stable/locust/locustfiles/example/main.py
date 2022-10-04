@@ -29,7 +29,7 @@ class WebsiteUser(HttpUser):
     @task(2)
     def get_requests(self):
         print("User instance (%r) executing my_task" % self)
-        print(f"Successfully made a request to: {WebsiteUser.host}/api/bookings/")
+        # print(f"Successfully made a request to: /api/bookings/")
         self.client.get("/showtimes/list", headers=default_headers)
         self.client.get("/movies/list", headers=default_headers)
         self.client.get("/bookings/list", headers=default_headers)
@@ -47,10 +47,10 @@ class WebsiteUser(HttpUser):
 
     @task(3)
     def add_booking(self):
-        bookings = self.client.get('/api/bookings/')
-        showtimes = self.client.get('/api/showtimes/')
-        users = self.client.get('/api/users/')
-        movies = self.client.get('/api/movies/')
+        bookings = requests.get(f"{WebsiteUser.host}/api/bookings/")
+        showtimes = requests.get(f"{WebsiteUser.host}/api/showtimes/")
+        users = requests.get(f"{WebsiteUser.host}/api/users/")
+        movies = requests.get(f"{WebsiteUser.host}/api/movies/")
         
         user_ids = []
         showtime_ids = []
