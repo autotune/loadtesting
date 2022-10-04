@@ -55,8 +55,8 @@ class WebsiteUser(HttpUser):
         for key in users.json():
           user_ids.append(key['ID'])
 
-       for key in showtimes.json():
-          showtime_ids.append(key['ID'])
+        for key in showtimes.json():
+           showtime_ids.append(key['ID'])
 
        for key in movies.json():
           movie_ids.append(key['ID'])
