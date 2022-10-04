@@ -22,5 +22,6 @@ class WebsiteUser(HttpUser):
     @task(1)
     def get_requests(self):
         print("User instance (%r) executing my_task" % self)
-        self.client.get("/users/list", headers=default_headers)
+        self.client.get("/showtimes/list", headers=default_headers)
         self.client.get("/movies/list", headers=default_headers)
+        self.client.get("/bookings/list", headers=default_headers)
