@@ -6,6 +6,7 @@ from locust import events
 import names 
 import random
 import requests
+import os
 
 default_headers = {'User-Agent': 'locust-test'} 
                    
@@ -15,6 +16,7 @@ default_headers = {'User-Agent': 'locust-test'}
 @events.test_start.add_listener
 def on_test_start(environment, **kwargs):
     print("A new test is starting")
+    print(os.environ)
 
 @events.test_stop.add_listener
 def on_test_stop(environment, **kwargs):
