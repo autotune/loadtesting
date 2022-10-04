@@ -56,7 +56,6 @@ class WebsiteUser(HttpUser):
         showtime_ids = []
         movie_ids = []
       
-        print(users.json())
         for key in users.json():
           user_ids.append(key['ID'])
 
@@ -72,4 +71,5 @@ class WebsiteUser(HttpUser):
 
         new_booking = {'UserID': rand_user, 'MovieID': rand_movie, 'ShowtimeID': rand_showtime}
       
-        self.client.post('/api/bookings/', json=json.dumps(new_booking), headers=default_headers)
+        print(new_booking) 
+        print(self.client.post('/api/bookings/', json=new_booking, headers=default_headers))
