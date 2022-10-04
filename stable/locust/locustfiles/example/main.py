@@ -17,7 +17,6 @@ default_headers = {'User-Agent': 'locust-test'}
 @events.test_start.add_listener
 def on_test_start(environment, **kwargs):
     print("A new test is starting")
-    print(f"Successfully made a request to: {HttpUser.host}")
 
 
 @events.test_stop.add_listener
@@ -30,6 +29,7 @@ class WebsiteUser(HttpUser):
     @task(2)
     def get_requests(self):
         print("User instance (%r) executing my_task" % self)
+        print(f"Successfully made a request to: {HttpUser.host}")
         self.client.get("/showtimes/list", headers=default_headers)
         self.client.get("/movies/list", headers=default_headers)
         self.client.get("/bookings/list", headers=default_headers)
