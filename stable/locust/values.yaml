@@ -13,7 +13,7 @@ loadtest:
   locust_host: https://www.google.com
   # loadtest.pip_packages -- a list of extra python pip packages to install
   pip_packages: [
-    names=0.3.0
+    names==0.3.0
   ]
   # loadtest.environment -- environment variables used in the load test for both master and workers
   environment: {}
