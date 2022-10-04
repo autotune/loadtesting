@@ -43,10 +43,10 @@ class WebsiteUser(HttpUser):
 
     @task(3)
     def add_booking(self):
-        bookings = self.client.get(url + 'api/bookings/')
-        showtimes = self.client.get(url + 'api/showtimes/')
-        users = self.client.get(url + 'api/users/')
-        movies = self.client.get(url + 'api/movies/')
+        bookings = self.client.get('api/bookings/')
+        showtimes = self.client.get('api/showtimes/')
+        users = self.client.get('api/users/')
+        movies = self.client.get('api/movies/')
         
         user_ids = []
         showtime_ids = []
@@ -67,4 +67,4 @@ class WebsiteUser(HttpUser):
 
         new_booking = {'UserID': rand_user, 'MovieID': rand_movie, 'ShowtimeID': rand_showtime}
       
-        add_booking = self.client.post(url + 'api/bookings/', data=json.dumps(new_booking), headers=default_headers)
+        self.client.post('api/bookings/', data=json.dumps(new_booking), headers=default_headers)
