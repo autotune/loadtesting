@@ -17,7 +17,7 @@ default_headers = {'User-Agent': 'locust-test'}
 @events.test_start.add_listener
 def on_test_start(environment, **kwargs):
     print("A new test is starting")
-    print(os.environ)
+    print(url)
 
 @events.test_stop.add_listener
 def on_test_stop(environment, **kwargs):
