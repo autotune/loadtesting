@@ -22,7 +22,9 @@ class WebsiteUser(HttpUser):
     @task(1)
     def get_index(self):
         print("User instance (%r) executing my_task" % self)
-        self.client.get("/", headers=default_headers)
+        self.client.get("/users", headers=default_headers)
+        self.client.get("/movies", headers=default_headers)
+
 
     @task(3)
     def get_random_page(self):
