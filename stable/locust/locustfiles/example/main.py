@@ -42,7 +42,7 @@ class WebsiteUser(HttpUser):
        self.client.post("/api/users/", json=new_user, headers=default_headers)
 
     @task(3)
-    def add_booking(self)
+    def add_booking(self):
         bookings = self.client.get(url + 'api/bookings/')
         showtimes = self.client.get(url + 'api/showtimes/')
         users = self.client.get(url + 'api/users/')
