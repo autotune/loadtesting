@@ -22,14 +22,14 @@ def on_test_stop(environment, **kwargs):
 class WebsiteUser(HttpUser):
     wait_time = between(1, 2)
 
-    @task(1)
+    @task(2)
     def get_requests(self):
         print("User instance (%r) executing my_task" % self)
         self.client.get("/showtimes/list", headers=default_headers)
         self.client.get("/movies/list", headers=default_headers)
         self.client.get("/bookings/list", headers=default_headers)
 
-    @task(2) 
+    @task(1) 
     def add_user(self):
 
        new_user = {'Name': 'foo', 'LastName': 'bar'}
