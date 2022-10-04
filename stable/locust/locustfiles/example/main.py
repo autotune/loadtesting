@@ -56,10 +56,10 @@ class WebsiteUser(HttpUser):
           user_ids.append(key['ID'])
 
        for key in showtimes.json():
-         showtime_ids.append(key['ID'])
+          showtime_ids.append(key['ID'])
 
        for key in movies.json():
-         movie_ids.append(key['ID'])
+          movie_ids.append(key['ID'])
         
        rand_user = user_ids[random.randint(0, len(user_ids)-1)]
        rand_showtime = showtime_ids[random.randint(0, len(showtime_ids)-1)]
