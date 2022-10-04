@@ -10,7 +10,7 @@ loadtest:
   # loadtest.locust_lib_configmap -- name of a configmap containing your lib (default uses the example lib)
   locust_lib_configmap: "example-lib"
   # loadtest.locust_host -- the host you will load test
-  locust_host: https://www.google.com
+  locust_host: https://wayofthesys.org
   # loadtest.pip_packages -- a list of extra python pip packages to install
   pip_packages: [
     names==0.3.0
