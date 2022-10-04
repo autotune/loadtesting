@@ -20,12 +20,7 @@ class WebsiteUser(HttpUser):
     wait_time = between(1, 2)
 
     @task(1)
-    def get_index(self):
+    def get_requests(self):
         print("User instance (%r) executing my_task" % self)
-        self.client.get("/users", headers=default_headers)
-        self.client.get("/movies", headers=default_headers)
-
-
-    @task(3)
-    def get_random_page(self):
-        self.client.get(choose_random_page(), headers=default_headers)
+        self.client.get("/users/list", headers=default_headers)
+        self.client.get("/movies/list", headers=default_headers)
