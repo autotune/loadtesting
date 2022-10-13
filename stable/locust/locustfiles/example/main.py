@@ -71,5 +71,4 @@ class WebsiteUser(HttpUser):
 
         new_booking = {'UserID': rand_user, 'Movies': rand_movie, 'ShowtimeID': rand_showtime}
       
-        print(new_booking) 
-        print(self.client.post('/api/bookings/', json=new_booking, headers=default_headers))
+        self.client.post('/api/bookings/', json=new_booking, headers=default_headers)
