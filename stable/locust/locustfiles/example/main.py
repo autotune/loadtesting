@@ -69,6 +69,6 @@ class WebsiteUser(HttpUser):
         rand_showtime = showtime_ids[random.randint(0, len(showtime_ids)-1)]
         rand_movie = movie_ids[random.randint(0, len(movie_ids)-1)]
 
-        new_booking = {'UserID': rand_user, 'Movies': rand_movie, 'ShowtimeID': rand_showtime}
+        new_booking = {'UserID': rand_user, 'Movies': [rand_movie], 'ShowtimeID': rand_showtime}
       
         self.client.post('/api/bookings/', json=new_booking, headers=default_headers)
