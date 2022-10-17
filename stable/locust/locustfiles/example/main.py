@@ -24,7 +24,16 @@ def on_test_stop(environment, **kwargs):
     print("A new test is ending")
     
 class WebsiteUser(HttpUser):
-    wait_time = between(1, 2)
+    wait_time = between(1, 5)
+
+    @task(4)
+    def get_api_bookings(self):
+        print("User instance (%r) executing my_task" % self)
+        # print(f"Successfully made a request to: /api/bookings/")
+        self.client.get("/api/showtimes/", headers=default_headers)
+        self.client.get("/api/movies/", headers=default_headers)
+        self.client.get("/api/bookings/", headers=default_headers)
+        self.client.get("/api/users/", headers=default_headers)
 
     @task(2)
     def get_requests(self):
